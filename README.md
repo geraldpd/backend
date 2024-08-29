@@ -6,18 +6,20 @@ This project is a Laravel-based API application with OAuth2 authentication using
 
 ## Prerequisites
 
-- PHP >= 8.2
-- Composer
-- Node.js and npm
-- Docker for larave Sail
+-   PHP >= 8.2
+-   Composer
+-   Node.js and npm
+-   Docker for larave Sail
 
 ## Installation
 
 ### Clone the Repository
 
-```bash
+````bash
 git clone https://github.com/geraldpd/backend.git
 cd backend
 
+```bash
 composer install
 npm install
+````
