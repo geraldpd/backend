@@ -18,8 +18,32 @@ This project is a Laravel-based API application with OAuth2 authentication using
 ````bash
 git clone https://github.com/geraldpd/backend.git
 cd backend
+````
+
+### Starting Docker Sail
+````bash
+sail up
+````
+
+### Install composer and npm dependencies
 
 ```bash
 composer install
 npm install
 ````
+
+To generate passport client
+
+```bash
+sail php artisan passport:client --personal
+````
+
+then run
+
+```bash
+sail php artisan config:clear
+sail php artisan cache:clear
+````
+
+
+
