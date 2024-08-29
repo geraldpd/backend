@@ -12,7 +12,26 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     /**
-     * Register a new user
+     * @api {post} /api/register Register a New User
+     * @apiName RegisterUser
+     * @apiGroup Authentication
+     *
+     * @apiBody {String} name User's name.
+     * @apiBody {String} email User's email address.
+     * @apiBody {String} password User's password.
+     * @apiBody {String} password_confirmation Password confirmation.
+     *
+     * @apiSuccess {String} token Access token for the registered user.
+     *
+     * @apiError {Object} error List of validation errors.
+     * @apiErrorExample {json} Validation Error:
+     *     HTTP/1.1 400 Bad Request
+     *     {
+     *       "error": {
+     *         "email": ["The email has already been taken."],
+     *         "password": ["The password must be at least 8 characters."]
+     *       }
+     *     }
      */
     public function register(Request $request)
     {
@@ -38,7 +57,21 @@ class AuthController extends Controller
     }
 
     /**
-     * Login user account by email and password credentials
+     * @api {post} /api/login Login User
+     * @apiName LoginUser
+     * @apiGroup Authentication
+     *
+     * @apiBody {String} email User's email address.
+     * @apiBody {String} password User's password.
+     *
+     * @apiSuccess {String} token Access token for the authenticated user.
+     *
+     * @apiError {String} error Unauthorized access error.
+     * @apiErrorExample {json} Unauthorized:
+     *     HTTP/1.1 401 Unauthorized
+     *     {
+     *       "error": "Unauthorized"
+     *     }
      */
     public function login(Request $request)
     {
@@ -56,7 +89,20 @@ class AuthController extends Controller
     }
 
     /**
-     * Logout the authenticated user and revoke their access token.
+     * @api {post} /api/logout Logout User
+     * @apiName LogoutUser
+     * @apiGroup Authentication
+     *
+     * @apiHeader {String} Authorization Bearer {token}.
+     *
+     * @apiSuccess {Null} token Null indicating the user has been logged out.
+     *
+     * @apiError {String} error Error message if logout fails.
+     * @apiErrorExample {json} Error-Response:
+     *     HTTP/1.1 500 Internal Server Error
+     *     {
+     *       "error": "Could not revoke token."
+     *     }
      */
     public function logout(Request $request)
     {

@@ -14,3 +14,7 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::resource('customers', CustomerController::class, [
     'only' => ['index', 'edit', 'create']
 ]);
+
+Route::get('/docs', function () {
+    return redirect('/apidoc/index.html');
+});
