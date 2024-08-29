@@ -18,6 +18,9 @@ This project is a Laravel-based API application with OAuth2 authentication using
 ````bash
 git clone https://github.com/geraldpd/backend.git
 cd backend
+````
+
+### Install composer  and npm dependencies
 
 ```bash
 composer install
